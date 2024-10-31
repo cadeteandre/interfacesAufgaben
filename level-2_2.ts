@@ -3,8 +3,10 @@ import Trainee from "./classes/Trainee";
 
 const date_1 = new Date;
 date_1.setFullYear(2023);
+
 const date_2 = new Date;
 date_2.setFullYear(2024);
+
 const date_3 = new Date;
 date_3.setFullYear(2014);
 
