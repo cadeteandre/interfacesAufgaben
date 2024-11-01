@@ -18,17 +18,24 @@ class IceCreamParlor implements IIceCreamService {
         }
     }
 
-    addNewFlavor(flavor: IceCream): void {
-        this.flavors.push(flavor);
-        console.log(`${flavor.flavor} ice cream flavor has been added`);
+    addNewFlavor(flavor: string, price: number): void {
+        const existentIceCream = this.flavors.find((elt) => elt.flavor === flavor);
+        if(existentIceCream) {
+            existentIceCream.isAvailable = true;
+        } else {
+            const iceCreamToAdd = createIceCreamFlavor(flavor, price);
+            this.flavors.push(iceCreamToAdd);
+            console.log(`${flavor} ice cream flavor has been added`);
+        }
     };
 
     removeFlavor(flavor: string): void {
         this.flavors.forEach((elt) => elt.flavor === flavor ? elt.isAvailable = false : null);
     };
 
-    isFlavorAvailable(flavor: IceCream): boolean {
-        if(flavor.isAvailable) {
+    isFlavorAvailable(flavor: string): boolean {
+        const existentIceCream = this.flavors.find((elt) => elt.flavor === flavor);
+        if(existentIceCream?.isAvailable) {
             return true;
         } else {
             return false;
@@ -42,3 +49,8 @@ class IceCreamParlor implements IIceCreamService {
 }
 
 export default IceCreamParlor;
+
+const createIceCreamFlavor = (flavor: string, price: number): IceCream => {
+    const newIceCreamFlavor = new IceCream(flavor, price);
+    return newIceCreamFlavor;
+}

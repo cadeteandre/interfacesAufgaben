@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="./level-3_1.ts" defer></script>
+    <link rel="stylesheet" href="./style.css">
     <title>Interfaces Bonus Aufgabe</title>
 </head>
 <body>
-    <h1>Interface Bonus Aufgabe</h1>
+    <div id="app">
+        <section id="inputSection">
+            <form onsubmit="return false">
+                <h4>Ice cream flavors</h4>
+                <select id="allFlavors"></select>
+                <label for="inputFlavor">
+                    <input id="inputFlavor" type="text" placeholder="Type the flavor">
+                    <span class="required">*</span>
+                </label>
+                <label for="inputPrice">
+                    <input id="inputPrice" type="text" placeholder="Type the price">
+                    <span class="required">*</span>
+                </label>
+                <button id="addFlavorBtn">Add Flavor</button>
+                <button id="removeFlavorBtn">Remove Flavor</button>
+                <button id="checkPriceBtn">Check price</button>
+            </form>
+        </section>
+        <section id="showResults"></section>
+    </div>
 </body>
 </html>

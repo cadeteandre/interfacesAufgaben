@@ -1,11 +1,9 @@
-import IceCream from "../classes/IceCream";
-
 interface IIceCreamService {
     listFlavors: () => string[];
     orderIceCream: (flavor: string, scoops: number) => string;
-    addNewFlavor: (flavor: IceCream) => void;
+    addNewFlavor: (flavor: string, price: number) => void;
     removeFlavor: (flavor: string) => void;
-    isFlavorAvailable: (flavor: IceCream) => boolean;
+    isFlavorAvailable: (flavor: string) => boolean;
     getFlavorPrice: (flavor: string) => number | undefined;
 }
 
